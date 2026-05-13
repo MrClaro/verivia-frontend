@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+import { NotFoundPage } from "@/pages/NotFoundPage";
 import { AppProvider, useApp } from "@/context/app-context";
 import { AuthLayout } from "@/layouts/AuthLayout";
 import { AppLayout } from "@/layouts/AppLayout";
@@ -16,13 +17,13 @@ import { AdminPage } from "@/pages/admin/AdminPage";
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { session } = useApp();
-  if (!session) return <Navigate to="/login" replace />;
+  if (!session) return <Navigate to="/" replace />;
   return <>{children}</>;
 }
 
 function AdminRoute({ children }: { children: React.ReactNode }) {
   const { session } = useApp();
-  if (!session) return <Navigate to="/login" replace />;
+  if (!session) return <Navigate to="/" replace />;
   if (session.role !== "admin") return <Navigate to="/admin/blocked" replace />;
   return <>{children}</>;
 }
@@ -38,7 +39,7 @@ export default function App() {
     <AppProvider>
       <Routes>
         <Route
-          path="/login"
+          path="/"
           element={
             <GuestRoute>
               <AuthLayout />
@@ -74,7 +75,7 @@ export default function App() {
           />
         </Route>
 
-        <Route path="*" element={<Navigate to="/dashboard" replace />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </AppProvider>
   );
