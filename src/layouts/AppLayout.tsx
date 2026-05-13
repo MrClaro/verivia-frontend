@@ -5,10 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import {
-  Card,
-  CardContent,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Dialog,
   DialogContent,
@@ -86,7 +83,7 @@ export function AppLayout() {
                     size="lg"
                     className="gap-3 data-[size=lg]:h-12 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:p-0"
                   >
-                    <div className="grid size-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-emerald-500 to-sky-500 text-sm font-black text-white shadow-lg shadow-emerald-900/20 group-data-[collapsible=icon]:size-8">
+                    <div className="grid size-10 shrink-0 place-items-center rounded-xl bg-linear-to-br from-emerald-500 to-sky-500 text-sm font-black text-white shadow-lg shadow-emerald-900/20 group-data-[collapsible=icon]:size-8">
                       VV
                     </div>
                     <div className="grid flex-1 text-left text-sm leading-tight">
@@ -114,7 +111,7 @@ export function AppLayout() {
           </Sidebar>
 
           <SidebarInset>
-            <header className="sticky top-0 z-[1000] flex h-16 shrink-0 items-center gap-3 border-b bg-background/95 px-4 backdrop-blur-xl lg:px-6">
+            <header className="sticky top-0 z-1000 flex h-16 shrink-0 items-center gap-3 border-b bg-background/95 px-4 backdrop-blur-xl lg:px-6">
               <SidebarTrigger className="size-9 rounded-xl border bg-card text-foreground shadow-sm" />
               <div className="relative ml-auto w-full max-w-xl">
                 <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -153,7 +150,8 @@ function CheckInDialog() {
     handleCheckIn,
   } = useApp();
 
-  const selectedRoute = routes.find((r) => r.id === selectedRouteId) ?? routes[0];
+  const selectedRoute =
+    routes.find((r) => r.id === selectedRouteId) ?? routes[0];
 
   return (
     <Dialog open={checkInOpen} onOpenChange={setCheckInOpen}>
@@ -161,8 +159,7 @@ function CheckInDialog() {
         <DialogHeader>
           <DialogTitle>Reportar ônibus</DialogTitle>
           <DialogDescription>
-            Linha {selectedRoute?.name}. Seu relato ficará ativo por 15
-            minutos.
+            Linha {selectedRoute?.name}. Seu relato ficará ativo por 15 minutos.
           </DialogDescription>
         </DialogHeader>
         <div className="space-y-4">
@@ -170,9 +167,7 @@ function CheckInDialog() {
             <CardContent className="flex gap-3 p-4">
               <ShieldCheck className="mt-1 h-5 w-5 text-emerald-500" />
               <div>
-                <strong className="text-sm">
-                  Privacidade e consentimento
-                </strong>
+                <strong className="text-sm">Privacidade e consentimento</strong>
                 <p className="mt-1 text-sm text-muted-foreground">
                   A localização será usada para validar proximidade da rota e
                   salva com ID interno anonimizado.
@@ -195,9 +190,7 @@ function CheckInDialog() {
           <Button variant="outline" onClick={() => setCheckInOpen(false)}>
             Cancelar
           </Button>
-          <Button onClick={() => handleCheckIn()}>
-            Confirmar check-in
-          </Button>
+          <Button onClick={() => handleCheckIn()}>Confirmar check-in</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

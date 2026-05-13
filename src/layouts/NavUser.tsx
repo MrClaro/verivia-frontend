@@ -33,7 +33,7 @@ export function NavUser() {
               className="h-12 gap-3 rounded-xl data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
               <Avatar className="h-8 w-8 rounded-lg">
-                <AvatarFallback className="rounded-lg bg-gradient-to-br from-emerald-500 to-sky-500 text-xs font-black text-white">
+                <AvatarFallback className="rounded-lg bg-linear-to-br from-emerald-500 to-sky-500 text-xs font-black text-white">
                   {session.name.slice(0, 2).toUpperCase()}
                 </AvatarFallback>
               </Avatar>
@@ -58,7 +58,7 @@ export function NavUser() {
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-2 py-2 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarFallback className="rounded-lg bg-gradient-to-br from-emerald-500 to-sky-500 text-xs font-black text-white">
+                  <AvatarFallback className="rounded-lg bg-linear-to-br from-emerald-500 to-sky-500 text-xs font-black text-white">
                     {session.name.slice(0, 2).toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
